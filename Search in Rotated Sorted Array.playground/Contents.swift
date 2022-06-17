@@ -14,20 +14,24 @@ func binarySearch(_ l: Int, _ r: Int, _ nums: [Int], _ target: Int) -> Int{
         if nums[mid] == target {
             return mid
         } else if target > nums[mid] {
-            if mid + 1 <= r && nums[mid + 1] > nums[mid] {
-                print("\(mid + 1) \(r)")
+            if nums[mid] >= nums[l] {
                 return binarySearch(mid + 1, r, nums, target)
-            } else if mid - 1 >= l && nums[mid - 1] > nums[mid] {
-                print("\(l) \(mid - 1)")
-                return binarySearch(l, mid - 1, nums, target)
+            } else {
+                if target > nums[r] {
+                    return binarySearch(l, mid - 1 , nums, target)
+                } else {
+                    return binarySearch(mid + 1, r, nums, target)
+                }
             }
         } else {
-            if target > nums[l] {
-                print("\(l) \(mid - 1)")
-                return binarySearch(l, mid - 1, nums, target)
+            if nums[mid] >= nums[l] {
+                if target >= nums[l] {
+                    return binarySearch(l, mid - 1 , nums, target)
+                } else {
+                    return binarySearch(mid + 1, r, nums, target)
+                }
             } else {
-                print("\(mid + 1) \(r)")
-                return binarySearch(mid + 1, r, nums, target)
+                return binarySearch(l, mid - 1 , nums, target)
             }
         }
     }
