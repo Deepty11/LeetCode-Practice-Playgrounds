@@ -1,6 +1,6 @@
 import UIKit
 
-func findMiddleIndex(_ nums: [Int]) -> Int {
+func pivotIndex(_ nums: [Int]) -> Int {
     var leftSum = 0
     var rightSum = 0
     
@@ -27,6 +27,6 @@ let nums = [2,3,-1,8,4]
 let nums1 = [1,-1,4]
 let nums2 = [2,5]
 
-print(findMiddleIndex(nums))
-print(findMiddleIndex(nums1))
-print(findMiddleIndex(nums2))
+print(pivotIndex(nums))
+print(pivotIndex(nums1))
+print(pivotIndex(nums2))

@@ -50,5 +50,5 @@ func addCharacters(with range: Int, character: String ) -> String {
 }
 
 
-print(drawRuiFish(10, multiples: 5))
+print(drawRuiFish(15, multiples: 5))
 
