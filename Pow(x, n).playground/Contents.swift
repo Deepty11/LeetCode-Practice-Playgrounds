@@ -1,22 +1,33 @@
 import UIKit
-import Darwin
 
-// recursion
-//func myPow(_ x: Double, _ n: Int) -> Double {
-//    if x == 1 {
-//        return 1.0
-//    } else if n == 1 {
-//        return x * Double(n)
-//    } else {
-//        let power = n > 0 ? n : -n
-//        let value = n > 0 ? x : (1/x)
-//        return myPow(value, power/2) * myPow(value, (power - power/2))
-//    }
-//}
-
-//func myPow(_ x: Double, _ n: Int) -> Double {
-//    
-//}
+func myPow(_ x: Double, _ n: Int) -> Double {
+    var ans = 1.0
+    var xVal = x
+    var nPow = n
+    
+    if x == 0 { return 0 }
+    else if n == 0 { return 1}
+    
+    if n < 0 {
+        nPow = -n
+    }
+    
+    while(nPow > 0) {
+        if nPow % 2 == 0 {
+            xVal = xVal * xVal
+            nPow = nPow / 2
+        } else {
+            ans = ans * xVal
+            nPow -= 1
+        }
+    }
+    
+    if n < 0 {
+        ans = 1 / ans
+    }
+    
+    return ans
+}
 
 let x = 2.00000
 let n = 10

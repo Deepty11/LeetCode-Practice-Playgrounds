@@ -7,11 +7,11 @@ func drawRuiFish(_ n: Int, multiples: Int) -> String{
     var numOfStarsForTail = 1
     
     for i in 1...n {
-        pattern += addCharacters(with: numOfspaces, character: " ")
-        + addCharacters(with: numOfStarsForBody, character: "*")
-        + addCharacters(with: multiples * (n - i), character: " ")
-        + addCharacters(with: numOfStarsForTail, character: "*")
-        + "\n"
+        pattern += String(repeating: " ", count: numOfspaces)
+            + String(repeating: "*", count: numOfStarsForBody)
+            + String(repeating: " ", count: multiples * (n - i))
+            + String(repeating: "*", count: numOfStarsForTail)
+            + "\n"
         
         numOfspaces -= 1
         numOfStarsForBody = multiples * (i+1)
@@ -24,12 +24,11 @@ func drawRuiFish(_ n: Int, multiples: Int) -> String{
     numOfStarsForTail = numOfStarsForTail - 2
     
     for i in 1...(n - 1) {
-        //print(numOfStarsForBody)
-        pattern += addCharacters(with: numOfspaces, character: " ")
-        + addCharacters(with: numOfStarsForBody, character: "*")
-        + addCharacters(with: multiples * i, character: " ")
-        + addCharacters(with: numOfStarsForTail, character: "*")
-        + "\n"
+        pattern += String(repeating: " ", count: numOfspaces)
+            + String(repeating: "*", count: numOfStarsForBody)
+            + String(repeating: " ", count: multiples * i)
+            + String(repeating: "*", count: numOfStarsForTail)
+            + "\n"
         
         numOfspaces += 1
         numOfStarsForBody = multiples * (n - i - 1)
@@ -40,15 +39,5 @@ func drawRuiFish(_ n: Int, multiples: Int) -> String{
     return pattern
 }
 
-func addCharacters(with range: Int, character: String ) -> String {
-    var pattern = ""
-    for _ in 0..<range {
-        pattern += character
-    }
-    
-    return pattern
-}
-
-
-print(drawRuiFish(15, multiples: 5))
+print(drawRuiFish(3, multiples: 3))
 
